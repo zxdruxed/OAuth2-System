@@ -28,7 +28,7 @@ def create_session():
   if 'user' in session:
     return redirect(url_for('my_account'))
   else:
-    return render_template('redirect.html')
+    return render_template('redirect.html', client_id=CLIENT_ID, scope='identify+email')
 
 
 @app.route('/authorized', methods=['POST', 'GET'])
