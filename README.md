@@ -14,7 +14,7 @@
 
 ### Importing the necessary libraries
 
-python```
+python ```
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import requests
 ```
