@@ -12,3 +12,8 @@ After successful authorization, the user will be redirected to the link you spec
 # API USAGE
 
 And so, to get a user, you need to use this link "emeraldermine.onpella.app/api/user?oauth_token={OAUTH_TOKEN}&client_id={YOUR_CLIENT_ID}&client_secret={YOUR_CLIENT_SECRET}".
+
+
+# Examples
+
+The following example will be shown based on a site created in [Python](https://www.python.org) - [Flask](https://pypi.org/project/Flask/).
