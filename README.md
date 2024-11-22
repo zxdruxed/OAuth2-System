@@ -16,4 +16,4 @@ And so, to get a user, you need to use this link "emeraldermine.onpella.app/api/
 
 # Examples
 
-The following example will be shown based on a site created in [Python](https://www.python.org) - [Flask](https://pypi.org/project/Flask/).
+[The following example will be shown based on a site created](https://github.com/zxdruxed/OAuth2-System/tree/main/examples) in [Python](https://www.python.org) - [Flask](https://pypi.org/project/Flask/).
