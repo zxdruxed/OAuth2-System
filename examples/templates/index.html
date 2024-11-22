@@ -1,0 +1,5 @@
+{% if 'user' in session %}
+  <a href="{{url_for('my_account')}}">My Account</a>
+{% else %}
+  <a href="{{url_for('create_session')}}">Login with S.O2.S</a>
+{% endif %}
