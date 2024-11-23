@@ -1,10 +1,10 @@
 # Oauth2System
 
-### OAuth2System - a simple authorization system for multiple sites or projects.
+## OAuth2System - a simple authorization system for multiple sites or projects.
 
 ## How do I create my own app?
 
-#### [Here](https://emeraldermine.onpella.app/apps) you can create your own application.
+### [Here](https://emeraldermine.onpella.app/apps) you can create your own application.
 
 ## How can I create authorization using my application?
 
@@ -12,7 +12,7 @@
 
 ## A Simple Example ([Python](https://www.python.org) - [Flask](https://github.com/pallets/flask). )
 
-### Importing the necessary libraries
+## Importing the necessary libraries
 
 ```python
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
