@@ -34,5 +34,12 @@ def get_user(token):
   return data
 
 
+@app.route('/my_account')
+def my_account():
+  if 'token' in session:
+    user = get_user(session['token']
+    return user
+
+
 if __name__ == '__main__':
   app.run()
