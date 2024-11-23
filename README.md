@@ -32,9 +32,9 @@ app.secret_key = 'my_secret_key'
 
 ## Under the scope value, you must put the values that the system will receive
 
-### Identify - access to the displayed and user name, ID and avatar of the user.
+## Identify - access to the displayed and user name, ID and avatar of the user.
 
-### Email - access to the user's email
+## Email - access to the user's email
 
 ## If you want to specify multiple values at once, then the scope value should be something like "identify+email". (SPECIFY THE VALUES IN SMALL LETTERS!)
 
