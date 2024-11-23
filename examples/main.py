@@ -27,5 +27,12 @@ def logout():
   return redirect(url_for('index'))
 
 
+def get_user(token):
+  url = DOMAIN + '/api/user?oauth_token={}&client_id={}&client_secret={}'.format(token, CLIENT_ID, CLIENT_SECRET)
+  response = requests.get(url)
+  data = response.json()
+  return data
+
+
 if __name__ == '__main__':
   app.run()
