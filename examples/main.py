@@ -16,5 +16,16 @@ def create_session():
     return redirect('{}/oauth2/authorize?client_id={}&scope={}'.format(DOMAIN, CLIENT_ID, 'identify+email'))
 
 
+@app.route('/authorized', methods=['GET'])
+def authorized():
+  oauth_token = request.args.get('oauth_token')
+  session['token'] = oauth_token
+
+@app.route('/logout')
+def logout():
+  session.pop('token', None)
+  return redirect(url_for('index'))
+
+
 if __name__ == '__main__':
   app.run()
