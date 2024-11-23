@@ -3,7 +3,7 @@ import requests
 
 CLIENT_ID = YOUR_CLIENT_ID
 CLIENT_SECRET = YOUR_CLIENT_SECRET
-DOMAIN = 'emeraldermine.onpella.app'
+DOMAIN = 'oauth2system.sytes.net'
 
 app.secret_key = 'my_secret_key'
 
