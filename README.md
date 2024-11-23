@@ -24,6 +24,7 @@ import requests
 ```python
 CLIENT_ID = YOUR_CLIENT_ID
 CLIENT_SECRET = YOUR_CLIENT_SECRET
+DOMAIN = 'emeraldermine.onpella.app'
 
 app.secret_key = 'my_secret_key'
 ```
@@ -44,5 +45,41 @@ def create_session():
   if 'user' in session:
     return redirect(url_for('my_account'))
   else:
-    return render_template('redirect.html')
+    return redirect('{}/oauth2/authorize?client_id={}&scope={}'.format(DOMAIN, CLIENT_ID, 'identify+email'))
+```
+
+## Redirect Uri
+
+### The redirect uri of the application that you previously specified is a site page that accepts an OAuth2 token (it will be useful for us to work with the API).
+
+```python
+@app.route('/authorized', methods=['GET'])
+def authorized():
+  oauth_token = request.args.get('oauth_token')
+  session['token'] = oauth_token
+
+@app.route('/logout')
+def logout():
+  session.pop('token', None)
+  return redirect(url_for('index'))
+```
+
+# Working with the API
+
+### In order to get a user, we will need a previously obtained OAuth2 token, as well as the CLIENT ID and CLIENT SECRET of your application.
+
+```python
+def get_user(token):
+  url = DOMAIN + '/api/user?oauth_token={}&client_id={}&client_secret={}'.format(token, CLIENT_ID, CLIENT_SECRET)
+  response = requests.get(url)
+  data = response.json()
+  return data
+```
+
+```python
+@app.route('/my_account')
+def my_account():
+  if 'token' in session:
+    user = get_user(session['token']
+    return user
 ```
