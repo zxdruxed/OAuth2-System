@@ -5,6 +5,8 @@ CLIENT_ID = YOUR_CLIENT_ID
 CLIENT_SECRET = YOUR_CLIENT_SECRET
 DOMAIN = 'http://oauth2system.sytes.net'
 
+app = Flask(__name__)
+
 app.secret_key = 'my_secret_key'
 
 
