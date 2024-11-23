@@ -4,7 +4,7 @@
 
 ## How do I create my own app?
 
-### [Here](https://emeraldermine.onpella.app/apps) you can create your own application.
+### [Here](http://oauth2system.sytes.net/apps) you can create your own application.
 
 ## How can I create authorization using my application?
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
 ```python
 CLIENT_ID = YOUR_CLIENT_ID
 CLIENT_SECRET = YOUR_CLIENT_SECRET
-DOMAIN = 'emeraldermine.onpella.app'
+DOMAIN = 'oauth2system.sytes.net'
 
 app.secret_key = 'my_secret_key'
 ```
