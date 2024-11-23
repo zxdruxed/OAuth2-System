@@ -8,5 +8,13 @@ DOMAIN = 'emeraldermine.onpella.app'
 app.secret_key = 'my_secret_key'
 
 
+@app.route('/create_session')
+def create_session():
+  if 'user' in session:
+    return redirect(url_for('my_account'))
+  else:
+    return redirect('{}/oauth2/authorize?client_id={}&scope={}'.format(DOMAIN, CLIENT_ID, 'identify+email'))
+
+
 if __name__ == '__main__':
   app.run()
