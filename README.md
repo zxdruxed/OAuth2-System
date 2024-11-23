@@ -29,7 +29,7 @@ if __name__ == '__main__':
 ```python
 CLIENT_ID = YOUR_CLIENT_ID
 CLIENT_SECRET = YOUR_CLIENT_SECRET
-DOMAIN = '[oauth2system.sytes.net](http://oauth2system.sytes.net)'
+DOMAIN = 'http://oauth2system.sytes.net'
 
 app.secret_key = 'my_secret_key'
 ```
