@@ -1,31 +1,43 @@
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import requests
 
-CLIENT_ID = YOUR_CLIENT_ID
-CLIENT_SECRET = YOUR_CLIENT_SECRET
-DOMAIN = 'http://oauth2system.sytes.net'
-
 app = Flask(__name__)
+
+OAUTH2_CLIENT_ID = YOUR_CLIENT_ID
+OAUTH2_CLIENT_SECRET = YOUR_CLIENT_SECRET
+
+OAUTH2_BASE_URL = 'http://oauth2system.sytes.net'
+OAUTH2_AUTHRORIZATION_URL = OAUTH2_BASE_URL + '/oauth2/authorize'
+OAUTH2_API_BASE_URL = OAUTH2_BASE_URL + '/api'
 
 app.secret_key = 'my_secret_key'
 
 
-@app.route('/create_session')
-def create_session():
-  if 'user' in session:
-    return redirect(url_for('my_account'))
+@app.route('/login')
+def login():
+  if 'token' not in session:
+    scope = 'identify+email'
+    return redirect(OAUTH2_AUTHRORIZATION_URL + '?client_id=' + str(OAUTH2_CLIENT_ID) + '&scope=' + scope)
   else:
-    return redirect('{}/oauth2/authorize?client_id={}&scope={}'.format(DOMAIN, CLIENT_ID, 'identify+email'))
+    return render_template('login.html')
 
 
-@app.route('/authorized', methods=['GET'])
-def authorized():
+@app.route('/confirm_login', methods=['GET'])
+def confirm_login():
   oauth_token = request.args.get('oauth_token')
   session['token'] = oauth_token
 
+  user = get_user(oauth_token)
+  if users.find_one({'id': user['id']}) == None:
+    users.insert_one({'id': user['id'], 'token': oauth_token})
+
+  return redirect(url_for('index'))
+
+
 @app.route('/logout')
 def logout():
-  session.pop('token', None)
+  if 'token' in session:
+    session.pop('token', None) 
   return redirect(url_for('index'))
 
 
